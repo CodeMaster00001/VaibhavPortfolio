@@ -2,4 +2,4 @@
 Created a static portfolio website
 
 
-https://github.com/CodeMaster00001/VaibhavPortfolio/deployments/github-pages
+https://codemaster00001.github.io/VaibhavPortfolio/
