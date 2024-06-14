@@ -2,7 +2,7 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
-    background-color: #f8f9fa;
+    background-color: #f8f9fa; /* Light grey background */
     margin: 0;
     padding: 0;
     transition: background-color 0.3s ease;
@@ -10,37 +10,37 @@ body {
 
 .container {
     display: flex;
+    flex-wrap: wrap; /* Ensures items wrap to new lines on smaller screens */
     max-width: 1200px;
     margin: 20px auto;
-    background-color: #ffffff;
+    background-color: #ffffff; /* White background for content */
     padding: 20px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     animation: fadeIn 1s ease-in-out;
-    flex-wrap: nowrap; /* Prevent items from wrapping */
-    overflow: hidden;
 }
 
 .sidebar {
-    flex: 0 0 250px; /* Fixed width for sidebar */
-    background-color: #f0f0f0;
-    padding: 25px;
+    flex: 1 1 25%; /* Flex-grow: 1, Flex-shrink: 1, Basis: 25% */
+    max-width: 300px; /* Ensures sidebar doesn't get too wide */
+    background-color: #f0f0f0; /* Light grey sidebar */
+    padding: 20px;
     animation: slideInLeft 1s ease-in-out;
     transition: all 0.5s ease;
-    box-sizing: border-box;
-    margin-bottom: 20px;
+    box-sizing: border-box; /* Includes padding in width */
+    margin-bottom: 20px; /* Space at the bottom on small screens */
 }
 
 .main-content {
-    flex: 1; /* Take up remaining space */
+    flex: 1 1 75%; /* Flex-grow: 1, Flex-shrink: 1, Basis: 75% */
     padding: 20px;
     animation: slideInRight 1s ease-in-out;
-    box-sizing: border-box;
-    min-width: 0; /* Allow flex item to shrink */
+    box-sizing: border-box; /* Includes padding in width */
+    min-width: 300px; /* Ensures main content doesn't get too narrow */
 }
 
 header {
-    background-color: #343a40;
-    color: #ffffff;
+    background-color: #343a40; /* Dark background for header */
+    color: #ffffff; /* White text color */
     padding: 20px 0;
     text-align: center;
     position: relative;
@@ -51,48 +51,48 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-wrap: nowrap; /* Prevent wrapping in header */
+    flex-wrap: wrap; /* Allows wrapping of items in header */
 }
 
 header img {
-    width: 120px;
-    height: 120px;
-    object-fit: fill;
-    border-radius: 50%;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease-in-out;
-    margin-right: 20px;
+    width: 120px; /* Adjust the width as needed */
+    height: 120px; /* Adjust the height as needed */
+    object-fit: fill; /* Ensures the image covers the entire space */
+    border-radius: 50%; /* Creates a circular shape */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: Adds shadow for depth */
+    transition: transform 0.3s ease-in-out; /* Optional: Adds hover effect */
+    margin-right: 20px; /* Add spacing between image and name */
 }
 
 header h1 {
     margin: 0;
-    font-size: 2rem;
-    color: inherit;
+    font-size: 2rem; /* Larger font size for header */
+    color: inherit; /* Ensure text color matches header */
 }
 
 @media (max-width: 768px) {
     header img {
-        width: 80px;
-        height: 80px;
-        margin-right: 10px;
+        width: 100px; /* Adjust for smaller screens */
+        height: 100px; /* Adjust for smaller screens */
     }
     .header-content {
-        flex-direction: column;
+        flex-direction: column; /* Stack items vertically on smaller screens */
         text-align: center;
     }
-    header h1 {
-        font-size: 1.5rem;
+    header img {
+        margin-right: 0; /* Reset margin for smaller screens */
+        margin-bottom: 10px; /* Add spacing below image */
     }
 }
 
 h1, h2 {
     margin-top: 0;
-    color: #343a40;
+    color: #343a40; /* Dark text color for headings */
 }
 
 nav {
-    background-color: #007bff;
-    color: white;
+    background-color: #007bff; /* Primary blue navigation background */
+    color: white; /* White text color */
     text-align: center;
     padding: 10px 0;
     animation: fadeInUp 1s ease-in-out;
@@ -107,7 +107,7 @@ nav a {
 }
 
 nav a:hover {
-    background-color: #0056b3;
+    background-color: #0056b3; /* Darker shade of primary blue */
     transform: scale(1.1);
 }
 
@@ -131,11 +131,12 @@ ul li {
 
 .highlight {
     color: #2575fc;
+    /* color: black; */
     font-weight: bold;
 }
 
 .resume-link {
-    background-color: #007bff;
+    background-color: #007bff; /* Primary blue */
     color: white;
     border: none;
     padding: 5px 10px;
@@ -146,12 +147,12 @@ ul li {
 }
 
 .resume-link:hover {
-    background-color: #0056b3;
+    background-color: #0056b3; /* Darker shade of primary blue */
     transform: scale(1.1);
 }
 
 button.certificate-btn {
-    background-color: #007bff;
+    background-color: #007bff; /* Primary blue */
     color: white;
     border: none;
     padding: 5px 10px;
@@ -162,7 +163,7 @@ button.certificate-btn {
 }
 
 button.certificate-btn:hover {
-    background-color: #0056b3;
+    background-color: #0056b3; /* Darker shade of primary blue */
     transform: scale(1.1);
 }
 
@@ -176,11 +177,11 @@ button.certificate-btn:hover {
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black background */
 }
 
 .modal-content {
-    background-color: #fefefe;
+    background-color: #fefefe; /* White modal background */
     margin: 10% auto;
     padding: 20px;
     border: 1px solid #888;
@@ -205,20 +206,22 @@ button.certificate-btn:hover {
 
 .close:hover,
 .close:focus {
-    color: #000000;
+    color: #000000; /* Darker color on hover/focus */
     text-decoration: none;
     cursor: pointer;
     transform: rotate(90deg);
 }
 
+/* Highlighting for selected certificate */
 #certificates-details li.highlighted {
-    background-color: #007bff;
+    background-color: #007bff; /* Primary blue background */
     color: white;
     border-radius: 5px;
     padding: 5px;
     transition: background-color 0.3s ease;
 }
 
+/* Animations */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -319,180 +322,103 @@ button.certificate-btn:hover {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.1);
-    z-index: -1;
-}
-
-/* Sidebar Styling */
-.sidebar ul p {
-    margin: 0;
-    padding: 10px 0;
-    line-height: 1.5;
-    word-wrap: break-word;
-}
-
-.sidebar ul p a {
-    display: block;
-    color: #007bff;
-    text-decoration: none;
-    padding: 5px 0;
-    transition: color 0.3s ease;
-}
-
-.sidebar ul p a:hover {
-    text-decoration: underline;
-    color: #0056b3;
-}
-
-/* Ensure Email and Contact Number Do Not Merge */
-.sidebar ul p.contact-info {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 20px;
-}
-
-.sidebar ul p.contact-info a {
-    word-break: break-all;
-    margin: 5px 0;
-}
-
-.sidebar ul p.contact-info span {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-}
-
-/* Add Flexbox Properties */
-.sidebar ul p.contact-info {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    min-width: 0;
-    flex-shrink: 1; /* Allow shrinking */
-    word-break: break-word;
+    z-index: -1; /* Ensure the overlay is behind the text */
 }
 
 /* Media Queries */
+
+/* Adjustments for tablets */
 @media (max-width: 768px) {
     .container {
-        flex-direction: row;
-        padding: 10px;
-        flex-wrap: wrap; /* Allow wrapping on smaller screens */
+        flex-direction: column; /* Stack sidebar and main content vertically */
+        padding: 10px; /* Reduce padding for smaller screens */
     }
 
     .sidebar {
-        width: auto; /* Allow shrinking */
-        max-width: 100%;
+        width: 100%; /* Full width on smaller screens */
+        max-width: 100%; /* Ensure full width on smaller screens */
         padding: 10px;
-        margin-bottom: 20px;
+        margin-bottom: 20px; /* Add spacing between sidebar and main content */
     }
 
     .main-content {
-        width: 100%;
+        width: 100%; /* Full width on smaller screens */
         padding: 10px;
     }
 
     header img {
-        width: 80px;
-        height: 80px;
-        margin-right: 10px;
+        width: 80px; /* Smaller image for mobile */
+        height: 80px; /* Smaller image for mobile */
+        margin-right: 10px; /* Less space between image and text */
     }
 
     header h1 {
-        font-size: 1.5rem;
+        font-size: 1.5rem; /* Smaller font size for mobile */
     }
 
     nav {
         display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
+        flex-wrap: wrap; /* Allow links to wrap to new lines */
+        justify-content: center; /* Center-align links */
     }
 
     nav a {
-        flex: 1 1 auto;
-        margin: 5px;
-        padding: 5px;
-        font-size: 0.9rem;
+        flex: 1 1 auto; /* Make links flexible */
+        margin: 5px; /* Add margin for spacing */
+        padding: 5px; /* Reduce padding for mobile */
+        font-size: 0.9rem; /* Smaller font size for mobile */
     }
 
     ul {
-        padding-left: 10px;
-        margin: 10px 0;
+        padding-left: 10px; /* Reduce left padding for lists */
+        margin: 10px 0; /* Add margin for spacing */
     }
 
     ul li {
-        margin-bottom: 5px;
+        margin-bottom: 5px; /* Reduce space between list items */
     }
 }
 
 /* Adjustments for very small screens */
 @media (max-width: 480px) {
     .sidebar ul p {
-        font-size: 0.9rem;
+        font-size: 0.9rem; /* Smaller font size */
     }
 
     .sidebar h2 {
-        font-size: 1.2rem;
+        font-size: 1.2rem; /* Adjust font size */
     }
 
     .main-content h2 {
-        font-size: 1.4rem;
+        font-size: 1.4rem; /* Adjust font size */
     }
 
     nav a {
-        font-size: 0.8rem;
+        font-size: 0.8rem; /* Smaller font size for very small screens */
     }
 
     .container {
-        padding: 5px;
+        padding: 5px; /* Less padding for very small screens */
     }
 }
 
 /* Email and phone responsiveness */
 @media (max-width: 768px) {
     .sidebar ul p {
-        margin: 0;
-        padding: 5px 0;
-        line-height: 1.4;
-        word-wrap: break-word;
+        margin: 0; /* Remove default margin */
+        padding: 5px 0; /* Add padding for spacing */
+        line-height: 1.4; /* Line height for readability */
+        word-wrap: break-word; /* Ensure text breaks if too long */
     }
 
     .sidebar ul p a {
-        display: block;
-        color: #007bff;
-        text-decoration: none;
-        padding: 5px 0;
+        display: block; /* Ensure email and phone are on new lines */
+        color: #007bff; /* Link color */
+        text-decoration: none; /* Remove underline */
+        padding: 5px 0; /* Add padding for spacing */
     }
 
     .sidebar ul p a:hover {
-        text-decoration: underline;
+        text-decoration: underline; /* Underline on hover */
     }
-}
-
-/* Handle Flexbox for responsive squeezing */
-.sidebar ul p.contact-info {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    flex-shrink: 1; /* Allow shrinking */
-}
-
-.sidebar ul p.contact-info a {
-    white-space: nowrap; /* Prevent text wrapping */
-    overflow: hidden; /* Hide overflow text */
-    text-overflow: ellipsis; /* Add ellipsis to overflowing text */
-}
-
-.sidebar ul p.contact-info {
-    display: flex;
-    flex-wrap: nowrap; /* Prevent wrapping */
-    flex-shrink: 1; /* Allow shrinking */
-    justify-content: space-between; /* Distribute space between items */
-}
-
-.sidebar ul p.contact-info span {
-    flex-shrink: 1; /* Allow items to shrink */
-    overflow: hidden; /* Hide overflow */
-    text-overflow: ellipsis; /* Add ellipsis */
-    white-space: nowrap; /* Prevent wrapping */
-    max-width: 100%; /* Maximum width */
 }
