@@ -114,6 +114,27 @@ ul li {
     margin-bottom: 10px;
     animation: fadeInUp 0.5s ease-in-out;
 }
+/* by me */
+.highlight {
+    color: #2575fc;
+    /* color: black; */
+    font-weight: bold;
+}
+.resume-link {
+    background-color: #007bff; /* Primary blue */
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.resume-link:hover {
+    background-color: #0056b3; /* Darker shade of primary blue */
+    transform: scale(1.1);
+}
 
 button.certificate-btn {
     background-color: #007bff; /* Primary blue */
