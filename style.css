@@ -16,7 +16,6 @@ body {
     padding: 20px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     animation: fadeIn 1s ease-in-out;
-    flex-wrap: wrap; /* Added to handle wrapping on smaller screens */
 }
 
 .sidebar {
@@ -26,14 +25,12 @@ body {
     padding: 20px;
     animation: slideInLeft 1s ease-in-out;
     transition: max-width 0.5s ease; /* Smooth transition for max-width change */
-    box-sizing: border-box; /* Ensures padding is included in width */
 }
 
 .main-content {
     width: 75%;
     padding: 20px;
     animation: slideInRight 1s ease-in-out;
-    box-sizing: border-box; /* Ensures padding is included in width */
 }
 
 header {
@@ -49,7 +46,6 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-wrap: wrap; /* Allows wrapping of items in header */
 }
 
 header img {
@@ -72,14 +68,6 @@ header h1 {
     header img {
         width: 100px; /* Adjust for smaller screens */
         height: 100px; /* Adjust for smaller screens */
-    }
-    .header-content {
-        flex-direction: column; /* Stack items vertically on smaller screens */
-        text-align: center;
-    }
-    header img {
-        margin-right: 0; /* Reset margin for smaller screens */
-        margin-bottom: 10px; /* Add spacing below image */
     }
 }
 
@@ -126,13 +114,12 @@ ul li {
     margin-bottom: 10px;
     animation: fadeInUp 0.5s ease-in-out;
 }
-
+/* by me */
 .highlight {
     color: #2575fc;
     /* color: black; */
     font-weight: bold;
 }
-
 .resume-link {
     background-color: #007bff; /* Primary blue */
     color: white;
@@ -330,103 +317,13 @@ button.certificate-btn:hover {
     max-width: 100%;
     height: auto;
     display: block;
-    margin-top: 10px; /* Adjust margin if needed */
+    margin-top: 10px; /* Adjust spacing between certificate details */
 }
 
-/* Responsive Styles */
-
-/* Adjustments for tablets */
-@media (max-width: 768px) {
-    .container {
-        flex-direction: column; /* Stack sidebar and main content vertically */
-        padding: 10px; /* Reduce padding for smaller screens */
-    }
-
-    .sidebar {
-        width: 100%; /* Full width on smaller screens */
-        max-width: 100%; /* Ensure full width on smaller screens */
-        padding: 10px;
-        margin-bottom: 20px; /* Add spacing between sidebar and main content */
-    }
-
-    .main-content {
-        width: 100%; /* Full width on smaller screens */
-        padding: 10px;
-    }
-
-    header img {
-        width: 80px; /* Smaller image for mobile */
-        height: 80px; /* Smaller image for mobile */
-        margin-right: 10px; /* Less space between image and text */
-    }
-
-    header h1 {
-        font-size: 1.5rem; /* Smaller font size for mobile */
-    }
-
-    nav {
-        display: flex;
-        flex-wrap: wrap; /* Allow links to wrap to new lines */
-        justify-content: center; /* Center-align links */
-    }
-
-    nav a {
-        flex: 1 1 auto; /* Make links flexible */
-        margin: 5px; /* Add margin for spacing */
-        padding: 5px; /* Reduce padding for mobile */
-        font-size: 0.9rem; /* Smaller font size for mobile */
-    }
-
-    ul {
-        padding-left: 10px; /* Reduce left padding for lists */
-        margin: 10px 0; /* Add margin for spacing */
-    }
-
-    ul li {
-        margin-bottom: 5px; /* Reduce space between list items */
-    }
+#certificates-details ul li p {
+    margin: 5px 0;
 }
 
-/* Adjustments for very small screens */
-@media (max-width: 480px) {
-    .sidebar ul p {
-        font-size: 0.9rem; /* Smaller font size */
-    }
-
-    .sidebar h2 {
-        font-size: 1.2rem; /* Adjust font size */
-    }
-
-    .main-content h2 {
-        font-size: 1.4rem; /* Adjust font size */
-    }
-
-    nav a {
-        font-size: 0.8rem; /* Smaller font size for very small screens */
-    }
-
-    .container {
-        padding: 5px; /* Less padding for very small screens */
-    }
-}
-
-/* Email and phone responsiveness */
-@media (max-width: 768px) {
-    .sidebar ul p {
-        margin: 0; /* Remove default margin */
-        padding: 5px 0; /* Add padding for spacing */
-        line-height: 1.4; /* Line height for readability */
-        word-wrap: break-word; /* Ensure text breaks if too long */
-    }
-
-    .sidebar ul p a {
-        display: block; /* Ensure email and phone are on new lines */
-        color: #007bff; /* Link color */
-        text-decoration: none; /* Remove underline */
-        padding: 5px 0; /* Add padding for spacing */
-    }
-
-    .sidebar ul p a:hover {
-        text-decoration: underline; /* Underline on hover */
-    }
+#certificates-details ul li:last-child {
+    border-bottom: none;
 }
