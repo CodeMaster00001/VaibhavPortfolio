@@ -4,6 +4,8 @@ document.addEventListener("DOMContentLoaded", function() {
     const projectLink = document.querySelector(".project-link");
     const certificatesLink = document.querySelector(".certificates-link");
     const activitiesLink = document.querySelector(".activities-link");
+    // by me
+    const ResumeLink = document.querySelector(".Resume-link");
     const modal = document.getElementById("certificate-modal");
     const modalContent = document.querySelector(".modal-content");
     const closeBtn = document.querySelector(".close");
@@ -12,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const certificateButtons = document.querySelectorAll(".certificate-btn");
 
     // Initially show education details
-    showDetails("education-details");
+    showDetails("Resume-details");
 
     educationLink.addEventListener("click", function(event) {
         event.preventDefault();
@@ -37,6 +39,11 @@ document.addEventListener("DOMContentLoaded", function() {
     activitiesLink.addEventListener("click", function(event) {
         event.preventDefault();
         showDetails("activities-details");
+    });
+    // by me
+    ResumeLink.addEventListener("click", function(event) {
+        event.preventDefault();
+        showDetails("Resume-details");
     });
 
     closeBtn.addEventListener("click", function() {
