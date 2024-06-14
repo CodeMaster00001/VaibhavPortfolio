@@ -2,7 +2,7 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
-    background-color: #f8f9fa; /* Light grey background */
+    background-color: #f8f9fa;
     margin: 0;
     padding: 0;
     transition: background-color 0.3s ease;
@@ -10,37 +10,37 @@ body {
 
 .container {
     display: flex;
-    flex-wrap: wrap; /* Ensures items wrap to new lines on smaller screens */
     max-width: 1200px;
     margin: 20px auto;
-    background-color: #ffffff; /* White background for content */
+    background-color: #ffffff;
     padding: 20px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     animation: fadeIn 1s ease-in-out;
+    flex-wrap: nowrap; /* Prevent items from wrapping */
+    overflow: hidden;
 }
 
 .sidebar {
-    flex: 1 1 25%; /* Flex-grow: 1, Flex-shrink: 1, Basis: 25% */
-    max-width: 300px; /* Ensures sidebar doesn't get too wide */
-    background-color: #f0f0f0; /* Light grey sidebar */
+    flex: 0 0 250px; /* Fixed width for sidebar */
+    background-color: #f0f0f0;
     padding: 20px;
     animation: slideInLeft 1s ease-in-out;
     transition: all 0.5s ease;
-    box-sizing: border-box; /* Includes padding in width */
-    margin-bottom: 20px; /* Space at the bottom on small screens */
+    box-sizing: border-box;
+    margin-bottom: 20px;
 }
 
 .main-content {
-    flex: 1 1 75%; /* Flex-grow: 1, Flex-shrink: 1, Basis: 75% */
+    flex: 1; /* Take up remaining space */
     padding: 20px;
     animation: slideInRight 1s ease-in-out;
-    box-sizing: border-box; /* Includes padding in width */
-    min-width: 300px; /* Ensures main content doesn't get too narrow */
+    box-sizing: border-box;
+    min-width: 0; /* Allow flex item to shrink */
 }
 
 header {
-    background-color: #343a40; /* Dark background for header */
-    color: #ffffff; /* White text color */
+    background-color: #343a40;
+    color: #ffffff;
     padding: 20px 0;
     text-align: center;
     position: relative;
@@ -51,48 +51,48 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-wrap: wrap; /* Allows wrapping of items in header */
+    flex-wrap: nowrap; /* Prevent wrapping in header */
 }
 
 header img {
-    width: 120px; /* Adjust the width as needed */
-    height: 120px; /* Adjust the height as needed */
-    object-fit: fill; /* Ensures the image covers the entire space */
-    border-radius: 50%; /* Creates a circular shape */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: Adds shadow for depth */
-    transition: transform 0.3s ease-in-out; /* Optional: Adds hover effect */
-    margin-right: 20px; /* Add spacing between image and name */
+    width: 120px;
+    height: 120px;
+    object-fit: fill;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+    margin-right: 20px;
 }
 
 header h1 {
     margin: 0;
-    font-size: 2rem; /* Larger font size for header */
-    color: inherit; /* Ensure text color matches header */
+    font-size: 2rem;
+    color: inherit;
 }
 
 @media (max-width: 768px) {
     header img {
-        width: 100px; /* Adjust for smaller screens */
-        height: 100px; /* Adjust for smaller screens */
+        width: 80px;
+        height: 80px;
+        margin-right: 10px;
     }
     .header-content {
-        flex-direction: column; /* Stack items vertically on smaller screens */
+        flex-direction: column;
         text-align: center;
     }
-    header img {
-        margin-right: 0; /* Reset margin for smaller screens */
-        margin-bottom: 10px; /* Add spacing below image */
+    header h1 {
+        font-size: 1.5rem;
     }
 }
 
 h1, h2 {
     margin-top: 0;
-    color: #343a40; /* Dark text color for headings */
+    color: #343a40;
 }
 
 nav {
-    background-color: #007bff; /* Primary blue navigation background */
-    color: white; /* White text color */
+    background-color: #007bff;
+    color: white;
     text-align: center;
     padding: 10px 0;
     animation: fadeInUp 1s ease-in-out;
@@ -107,7 +107,7 @@ nav a {
 }
 
 nav a:hover {
-    background-color: #0056b3; /* Darker shade of primary blue */
+    background-color: #0056b3;
     transform: scale(1.1);
 }
 
@@ -131,12 +131,11 @@ ul li {
 
 .highlight {
     color: #2575fc;
-    /* color: black; */
     font-weight: bold;
 }
 
 .resume-link {
-    background-color: #007bff; /* Primary blue */
+    background-color: #007bff;
     color: white;
     border: none;
     padding: 5px 10px;
@@ -147,12 +146,12 @@ ul li {
 }
 
 .resume-link:hover {
-    background-color: #0056b3; /* Darker shade of primary blue */
+    background-color: #0056b3;
     transform: scale(1.1);
 }
 
 button.certificate-btn {
-    background-color: #007bff; /* Primary blue */
+    background-color: #007bff;
     color: white;
     border: none;
     padding: 5px 10px;
@@ -163,7 +162,7 @@ button.certificate-btn {
 }
 
 button.certificate-btn:hover {
-    background-color: #0056b3; /* Darker shade of primary blue */
+    background-color: #0056b3;
     transform: scale(1.1);
 }
 
@@ -177,11 +176,11 @@ button.certificate-btn:hover {
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black background */
+    background-color: rgba(0, 0, 0, 0.8);
 }
 
 .modal-content {
-    background-color: #fefefe; /* White modal background */
+    background-color: #fefefe;
     margin: 10% auto;
     padding: 20px;
     border: 1px solid #888;
@@ -206,22 +205,20 @@ button.certificate-btn:hover {
 
 .close:hover,
 .close:focus {
-    color: #000000; /* Darker color on hover/focus */
+    color: #000000;
     text-decoration: none;
     cursor: pointer;
     transform: rotate(90deg);
 }
 
-/* Highlighting for selected certificate */
 #certificates-details li.highlighted {
-    background-color: #007bff; /* Primary blue background */
+    background-color: #007bff;
     color: white;
     border-radius: 5px;
     padding: 5px;
     transition: background-color 0.3s ease;
 }
 
-/* Animations */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -322,142 +319,180 @@ button.certificate-btn:hover {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.1);
-    z-index: -1; /* Ensure the overlay is behind the text */
+    z-index: -1;
 }
 
 /* Sidebar Styling */
 .sidebar ul p {
     margin: 0;
-    padding: 10px 0; /* Add padding to space out text */
-    line-height: 1.5; /* Increase line height for readability */
-    word-wrap: break-word; /* Prevent text overflow */
+    padding: 10px 0;
+    line-height: 1.5;
+    word-wrap: break-word;
 }
 
 .sidebar ul p a {
-    display: block; /* Ensure each contact item is on a new line */
-    color: #007bff; /* Blue color for links */
-    text-decoration: none; /* Remove underline */
-    padding: 5px 0; /* Add spacing */
+    display: block;
+    color: #007bff;
+    text-decoration: none;
+    padding: 5px 0;
     transition: color 0.3s ease;
 }
 
 .sidebar ul p a:hover {
-    text-decoration: underline; /* Underline on hover */
-    color: #0056b3; /* Darker blue on hover */
+    text-decoration: underline;
+    color: #0056b3;
 }
 
 /* Ensure Email and Contact Number Do Not Merge */
 .sidebar ul p.contact-info {
     display: flex;
-    flex-direction: column; /* Stack contact details vertically */
-    margin-bottom: 20px; /* Add spacing to prevent merging */
+    flex-direction: column;
+    margin-bottom: 20px;
 }
 
 .sidebar ul p.contact-info a {
-    word-break: break-all; /* Break long words if necessary */
-    margin: 5px 0; /* Add spacing between items */
+    word-break: break-all;
+    margin: 5px 0;
 }
 
 .sidebar ul p.contact-info span {
-    display: block; /* Ensure each detail is on a new line */
-    margin-bottom: 5px; /* Add margin for spacing */
-    font-weight: bold; /* Highlight contact details */
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+/* Add Flexbox Properties */
+.sidebar ul p.contact-info {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 0;
+    flex-shrink: 1; /* Allow shrinking */
+    word-break: break-word;
 }
 
 /* Media Queries */
-
-/* Adjustments for tablets */
 @media (max-width: 768px) {
     .container {
-        flex-direction: column; /* Stack sidebar and main content vertically */
-        padding: 10px; /* Reduce padding for smaller screens */
+        flex-direction: row;
+        padding: 10px;
+        flex-wrap: wrap; /* Allow wrapping on smaller screens */
     }
 
     .sidebar {
-        width: 100%; /* Full width on smaller screens */
-        max-width: 100%; /* Ensure full width on smaller screens */
+        width: auto; /* Allow shrinking */
+        max-width: 100%;
         padding: 10px;
-        margin-bottom: 20px; /* Add spacing between sidebar and main content */
+        margin-bottom: 20px;
     }
 
     .main-content {
-        width: 100%; /* Full width on smaller screens */
+        width: 100%;
         padding: 10px;
     }
 
     header img {
-        width: 80px; /* Smaller image for mobile */
-        height: 80px; /* Smaller image for mobile */
-        margin-right: 10px; /* Less space between image and text */
+        width: 80px;
+        height: 80px;
+        margin-right: 10px;
     }
 
     header h1 {
-        font-size: 1.5rem; /* Smaller font size for mobile */
+        font-size: 1.5rem;
     }
 
     nav {
         display: flex;
-        flex-wrap: wrap; /* Allow links to wrap to new lines */
-        justify-content: center; /* Center-align links */
+        flex-wrap: wrap;
+        justify-content: center;
     }
 
     nav a {
-        flex: 1 1 auto; /* Make links flexible */
-        margin: 5px; /* Add margin for spacing */
-        padding: 5px; /* Reduce padding for mobile */
-        font-size: 0.9rem; /* Smaller font size for mobile */
+        flex: 1 1 auto;
+        margin: 5px;
+        padding: 5px;
+        font-size: 0.9rem;
     }
 
     ul {
-        padding-left: 10px; /* Reduce left padding for lists */
-        margin: 10px 0; /* Add margin for spacing */
+        padding-left: 10px;
+        margin: 10px 0;
     }
 
     ul li {
-        margin-bottom: 5px; /* Reduce space between list items */
+        margin-bottom: 5px;
     }
 }
 
 /* Adjustments for very small screens */
 @media (max-width: 480px) {
     .sidebar ul p {
-        font-size: 0.9rem; /* Smaller font size */
+        font-size: 0.9rem;
     }
 
     .sidebar h2 {
-        font-size: 1.2rem; /* Adjust font size */
+        font-size: 1.2rem;
     }
 
     .main-content h2 {
-        font-size: 1.4rem; /* Adjust font size */
+        font-size: 1.4rem;
     }
 
     nav a {
-        font-size: 0.8rem; /* Smaller font size for very small screens */
+        font-size: 0.8rem;
     }
 
     .container {
-        padding: 5px; /* Less padding for very small screens */
+        padding: 5px;
     }
 }
 
 /* Email and phone responsiveness */
 @media (max-width: 768px) {
     .sidebar ul p {
-        margin: 0; /* Remove default margin */
-        padding: 5px 0; /* Add padding for spacing */
-        line-height: 1.4; /* Line height for readability */
-        word-wrap: break-word; /* Ensure text breaks if too long */
+        margin: 0;
+        padding: 5px 0;
+        line-height: 1.4;
+        word-wrap: break-word;
     }
 
     .sidebar ul p a {
-        display: block; /* Ensure email and phone are on new lines */
-        color: #007bff; /* Link color */
-        text-decoration: none; /* Remove underline */
-        padding: 5px 0; /* Add padding for spacing */
+        display: block;
+        color: #007bff;
+        text-decoration: none;
+        padding: 5px 0;
     }
 
     .sidebar ul p a:hover {
-        text-decoration: underline; /* Underline on hover */
+        text-decoration: underline;
     }
+}
+
+/* Handle Flexbox for responsive squeezing */
+.sidebar ul p.contact-info {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    flex-shrink: 1; /* Allow shrinking */
+}
+
+.sidebar ul p.contact-info a {
+    white-space: nowrap; /* Prevent text wrapping */
+    overflow: hidden; /* Hide overflow text */
+    text-overflow: ellipsis; /* Add ellipsis to overflowing text */
+}
+
+.sidebar ul p.contact-info {
+    display: flex;
+    flex-wrap: nowrap; /* Prevent wrapping */
+    flex-shrink: 1; /* Allow shrinking */
+    justify-content: space-between; /* Distribute space between items */
+}
+
+.sidebar ul p.contact-info span {
+    flex-shrink: 1; /* Allow items to shrink */
+    overflow: hidden; /* Hide overflow */
+    text-overflow: ellipsis; /* Add ellipsis */
+    white-space: nowrap; /* Prevent wrapping */
+    max-width: 100%; /* Maximum width */
 }
