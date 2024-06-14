@@ -325,6 +325,45 @@ button.certificate-btn:hover {
     z-index: -1; /* Ensure the overlay is behind the text */
 }
 
+/* Sidebar Styling */
+.sidebar ul p {
+    margin: 0;
+    padding: 10px 0; /* Add padding to space out text */
+    line-height: 1.5; /* Increase line height for readability */
+    word-wrap: break-word; /* Prevent text overflow */
+}
+
+.sidebar ul p a {
+    display: block; /* Ensure each contact item is on a new line */
+    color: #007bff; /* Blue color for links */
+    text-decoration: none; /* Remove underline */
+    padding: 5px 0; /* Add spacing */
+    transition: color 0.3s ease;
+}
+
+.sidebar ul p a:hover {
+    text-decoration: underline; /* Underline on hover */
+    color: #0056b3; /* Darker blue on hover */
+}
+
+/* Ensure Email and Contact Number Do Not Merge */
+.sidebar ul p.contact-info {
+    display: flex;
+    flex-direction: column; /* Stack contact details vertically */
+    margin-bottom: 20px; /* Add spacing to prevent merging */
+}
+
+.sidebar ul p.contact-info a {
+    word-break: break-all; /* Break long words if necessary */
+    margin: 5px 0; /* Add spacing between items */
+}
+
+.sidebar ul p.contact-info span {
+    display: block; /* Ensure each detail is on a new line */
+    margin-bottom: 5px; /* Add margin for spacing */
+    font-weight: bold; /* Highlight contact details */
+}
+
 /* Media Queries */
 
 /* Adjustments for tablets */
