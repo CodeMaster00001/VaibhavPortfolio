@@ -10,32 +10,30 @@ body {
 
 .container {
     display: flex;
-    flex-wrap: wrap; /* Ensures items wrap to new lines on smaller screens */
     max-width: 1200px;
     margin: 20px auto;
     background-color: #ffffff; /* White background for content */
     padding: 20px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     animation: fadeIn 1s ease-in-out;
+    flex-wrap: wrap; /* Added to handle wrapping on smaller screens */
 }
 
 .sidebar {
-    flex: 1 1 25%; /* Flex-grow: 1, Flex-shrink: 1, Basis: 25% */
-    max-width: 300px; /* Ensures sidebar doesn't get too wide */
+    width: 100%; /* Initially fill the entire width */
+    max-width: 25%; /* Max width for sidebar when other content is shown */
     background-color: #f0f0f0; /* Light grey sidebar */
     padding: 20px;
     animation: slideInLeft 1s ease-in-out;
-    transition: all 0.5s ease;
-    box-sizing: border-box; /* Includes padding in width */
-    margin-bottom: 20px; /* Space at the bottom on small screens */
+    transition: max-width 0.5s ease; /* Smooth transition for max-width change */
+    box-sizing: border-box; /* Ensures padding is included in width */
 }
 
 .main-content {
-    flex: 1 1 75%; /* Flex-grow: 1, Flex-shrink: 1, Basis: 75% */
+    width: 75%;
     padding: 20px;
     animation: slideInRight 1s ease-in-out;
-    box-sizing: border-box; /* Includes padding in width */
-    min-width: 300px; /* Ensures main content doesn't get too narrow */
+    box-sizing: border-box; /* Ensures padding is included in width */
 }
 
 header {
@@ -315,17 +313,27 @@ button.certificate-btn:hover {
 }
 
 #certificates-details ul li:hover::before {
-    content: "";
+    content: "\2192"; /* Unicode for right arrow symbol */
     position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.1);
-    z-index: -1; /* Ensure the overlay is behind the text */
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 14px;
+    color: #007bff;
 }
 
-/* Media Queries */
+#certificates-details ul li:hover u {
+    color: #007bff;
+}
+
+#certificates-details ul li img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-top: 10px; /* Adjust margin if needed */
+}
+
+/* Responsive Styles */
 
 /* Adjustments for tablets */
 @media (max-width: 768px) {
@@ -422,4 +430,3 @@ button.certificate-btn:hover {
         text-decoration: underline; /* Underline on hover */
     }
 }
-
