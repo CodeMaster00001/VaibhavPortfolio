@@ -327,12 +327,3 @@ button.certificate-btn:hover {
 #certificates-details ul li:last-child {
     border-bottom: none;
 }
-.certificate-img {
-    width: 100%;
-    max-width: 600px; /* Adjust as needed */
-    margin-top: 10px;
-    border: 1px solid #ccc;
-    padding: 10px;
-    display: block;
-    margin-bottom: 20px;
-}
