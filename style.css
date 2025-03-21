@@ -327,3 +327,6 @@ button.certificate-btn:hover {
 #certificates-details ul li:last-child {
     border-bottom: none;
 }
+iframe img{
+width:-webkit-fill-available
+}
