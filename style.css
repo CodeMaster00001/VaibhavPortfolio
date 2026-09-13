@@ -956,6 +956,12 @@ p {
 
 .line {
   margin-bottom: 0.38rem;
+  animation: terminalLine 0.22s ease both;
+}
+
+@keyframes terminalLine {
+  from { opacity: 0; transform: translateX(-5px); }
+  to { opacity: 1; transform: translateX(0); }
 }
 
 .line.muted {
@@ -967,6 +973,18 @@ p {
   align-items: center;
   gap: 0.55rem;
   margin-top: 0.3rem;
+}
+
+.terminal-form::after {
+  content: "";
+  width: 0.55rem;
+  height: 1.05rem;
+  background: var(--success);
+  animation: terminalCursor 1s steps(2, jump-none) infinite;
+}
+
+@keyframes terminalCursor {
+  50% { opacity: 0; }
 }
 
 .prompt {

@@ -9,6 +9,7 @@ const portfolioData = {
     email: "vaibhavmalviya2902@gmail.com",
     phone: "+91 62659 58565",
     github: "https://github.com/CodeMaster00001",
+    githubSecond: "https://github.com/MalviyaSir?tab=repositories",
     linkedin: "https://www.linkedin.com/in/vaibhav-malviya-586813226/",
     hackerrank: "https://www.hackerrank.com/profile/001codemaster",
     codechef: "https://www.codechef.com/users/codemaster40",
@@ -544,8 +545,10 @@ const initializeTerminal = () => {
   if (!terminalForm || !terminalInput || !terminalOutput) return;
 
   const commandHandlers = {
+    hi: ["Hi Vaibhav's visitor. Type help to explore the portfolio."],
+    hello: ["Hello. Welcome to Vaibhav Malviya's engineering portfolio."],
     help: [
-      "Available commands: help, about, skills, experience, projects, achievements, education, github, linkedin, resume, contact, clear",
+      "Available commands: hi, help, about, skills, skill, experience, projects, achievements, education, github, linkedin, resume, contact, clear",
       "Use the navigation to move between sections."
     ],
     about: [
@@ -581,7 +584,8 @@ const initializeTerminal = () => {
     ],
     github: [
       "https://github.com/CodeMaster00001",
-      "Public repositories are checked and curated when GitHub API access is limited."
+      "https://github.com/MalviyaSir?tab=repositories",
+      "Two GitHub identities, curated project links, no API dependency."
     ],
     contact: [
       "Email: vaibhavmalviya2902@gmail.com",
@@ -597,6 +601,10 @@ const initializeTerminal = () => {
     resume: ["Download: public/resume.pdf"],
     clear: ["Terminal cleared."]
   };
+
+  commandHandlers.skill = commandHandlers.skills;
+  commandHandlers.work = commandHandlers.projects;
+  commandHandlers.social = [portfolioData.profile.github, portfolioData.profile.githubSecond, portfolioData.profile.linkedin];
 
   const renderLine = (text) => {
     const line = document.createElement("div");
@@ -623,7 +631,7 @@ const initializeTerminal = () => {
     }
 
     const response = commandHandlers[command] || [
-      "Command not recognized. Try: help, about, skills, experience, projects, achievements, education, github, linkedin, resume, contact, clear"
+      "Command not recognized. Try: hi, help, about, skills, experience, projects, achievements, education, github, linkedin, resume, contact, clear"
     ];
     response.forEach((line) => renderLine(line));
     if (terminalStatus) terminalStatus.textContent = commandHandlers[command] ? `Command completed: ${command}` : "Unknown command. Type help to see available commands.";
