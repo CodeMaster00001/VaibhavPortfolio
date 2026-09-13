@@ -1302,6 +1302,256 @@ body.theme-light {
   }
 }
 
+@media (max-width: 600px) {
+  .container {
+    width: min(100% - 1.25rem, var(--max-width));
+  }
+
+  .site-header {
+    min-height: 64px;
+    padding: 0.75rem 0.625rem;
+  }
+
+  .nav-wrap {
+    gap: 0.55rem;
+  }
+
+  .brand {
+    flex: 0 0 2.35rem;
+    width: 2.35rem;
+    height: 2.35rem;
+  }
+
+  .menu-toggle {
+    min-width: 58px;
+    min-height: 38px;
+    padding: 0.45rem 0.55rem;
+    font-size: 0.78rem;
+  }
+
+  .header-actions {
+    display: flex;
+    gap: 0.35rem;
+    margin-left: auto;
+  }
+
+  .theme-toggle,
+  .nav-button {
+    padding: 0.48rem 0.55rem;
+    font-size: 0.68rem;
+    white-space: nowrap;
+  }
+
+  .nav-button {
+    display: none;
+  }
+
+  .site-nav {
+    left: 0.625rem;
+    right: 0.625rem;
+    top: 66px;
+    max-height: calc(100vh - 80px);
+    overflow-y: auto;
+    border-radius: 12px;
+  }
+
+  .section {
+    padding: 3.75rem 0;
+  }
+
+  .hero {
+    padding-top: 2.25rem;
+  }
+
+  h1 {
+    font-size: clamp(2.45rem, 14vw, 4rem);
+    overflow-wrap: anywhere;
+  }
+
+  h2 {
+    font-size: clamp(1.8rem, 9vw, 2.55rem);
+  }
+
+  .eyebrow {
+    font-size: 0.66rem;
+  }
+
+  .summary {
+    font-size: 0.95rem;
+  }
+
+  .cta-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.55rem;
+  }
+
+  .cta-row .button {
+    width: 100%;
+    min-height: 46px;
+    padding: 0.65rem 0.55rem;
+    text-align: center;
+  }
+
+  .hero-points {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+  }
+
+  .hero-points li {
+    min-height: 54px;
+    padding: 0.55rem;
+    border-radius: 10px;
+    font-size: 0.74rem;
+    display: flex;
+    align-items: center;
+  }
+
+  .profile-card {
+    width: 100%;
+  }
+
+  .profile-photo-wrap,
+  .profile-photo {
+    min-height: 270px;
+    max-height: 330px;
+  }
+
+  .availability-badge {
+    font-size: 0.61rem;
+  }
+
+  .profile-card-body h2 {
+    font-size: 1.45rem;
+  }
+
+  .profile-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .profile-action,
+  .profile-icon-link {
+    width: 100%;
+    min-height: 42px;
+  }
+
+  .terminal-window pre {
+    font-size: 0.73rem;
+    line-height: 1.65;
+    padding: 1rem 0.8rem 1.1rem;
+  }
+
+  .terminal-shell {
+    padding: 0.65rem;
+  }
+
+  .terminal-output {
+    max-height: 230px;
+    min-height: 150px;
+    padding: 0.75rem;
+    font-size: 0.74rem;
+    overflow-wrap: anywhere;
+  }
+
+  .terminal-form {
+    gap: 0.35rem;
+  }
+
+  #terminal-input {
+    min-width: 0;
+    font-size: 0.78rem;
+  }
+
+  .filter-row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .filter-chip {
+    min-height: 42px;
+    padding: 0.55rem 0.35rem;
+    font-size: 0.7rem;
+  }
+
+  .project-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .project-links {
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 0.55rem;
+    font-size: 0.78rem;
+  }
+
+  .project-links a {
+    min-height: 34px;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .project-card {
+    padding: 1.15rem;
+  }
+
+  .certificate-grid {
+    gap: 0.65rem;
+  }
+
+  .certificate-card {
+    padding: 0.55rem;
+    font-size: 0.78rem;
+  }
+
+  .certificate-preview {
+    aspect-ratio: 1 / 0.78;
+  }
+
+  .certificate-modal-content {
+    height: 96vh;
+    padding: 0.8rem;
+  }
+
+  #certificate-preview img,
+  #certificate-preview iframe {
+    min-height: 280px;
+    height: calc(96vh - 145px);
+    max-height: calc(96vh - 145px);
+  }
+
+  .certificate-actions .button,
+  .certificate-view-note {
+    min-height: 40px;
+  }
+
+  .contact-links a,
+  .contact-links .copy-email {
+    width: 100%;
+    min-height: 42px;
+    padding: 0.65rem;
+    justify-content: flex-start;
+    overflow-wrap: anywhere;
+  }
+
+  .footer-wrap {
+    gap: 0.65rem;
+  }
+
+  .footer-links {
+    flex-wrap: wrap;
+  }
+
+  .back-to-top {
+    right: 0.7rem;
+    bottom: 0.7rem;
+    width: 2.45rem;
+    height: 2.45rem;
+  }
+}
+
 @media (max-width: 480px) {
   .profile-card {
     display: block;
