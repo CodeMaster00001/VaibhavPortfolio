@@ -120,7 +120,7 @@ const portfolioData = {
         "Contributed to web development, vehicle electrification, wiring harness, electronics implementation, and Arduino-based functionality; achieved AIR-7 and 2nd Prize in the Special Award category.",
       tech: ["Web Development", "Electrification", "Wiring Harness", "Arduino", "Electronics"],
       github: "https://github.com/CodeMaster00001/Spark-Ignited",
-      demo: "",
+      demo: "https://codemaster00001.github.io/Spark-Ignited/",
       achievement: "AIR-7 and 2nd Prize, Special Award",
       highlight: "Competition"
     },
@@ -540,6 +540,7 @@ const initializeTerminal = () => {
   const terminalForm = document.getElementById("terminal-form");
   const terminalInput = document.getElementById("terminal-input");
   const terminalOutput = document.getElementById("terminal-output");
+  const terminalStatus = document.getElementById("terminal-status");
   if (!terminalForm || !terminalInput || !terminalOutput) return;
 
   const commandHandlers = {
@@ -607,7 +608,7 @@ const initializeTerminal = () => {
 
   terminalForm.addEventListener("submit", (event) => {
     event.preventDefault();
-    const command = terminalInput.value.trim().toLowerCase();
+    const command = terminalInput.value.trim().toLowerCase().replace(/^\$\s*/, "").replace(/\s+/g, " ");
     if (!command) return;
     renderLine(`> ${command}`);
     app.history.push(command);
@@ -617,6 +618,7 @@ const initializeTerminal = () => {
     if (command === "clear") {
       terminalOutput.innerHTML = "";
       renderLine("Terminal cleared.");
+      if (terminalStatus) terminalStatus.textContent = "Cleared. Ready for a new command.";
       return;
     }
 
@@ -624,6 +626,7 @@ const initializeTerminal = () => {
       "Command not recognized. Try: help, about, skills, experience, projects, achievements, education, github, linkedin, resume, contact, clear"
     ];
     response.forEach((line) => renderLine(line));
+    if (terminalStatus) terminalStatus.textContent = commandHandlers[command] ? `Command completed: ${command}` : "Unknown command. Type help to see available commands.";
   });
 
   terminalInput.addEventListener("keydown", (event) => {

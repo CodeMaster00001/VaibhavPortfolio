@@ -178,7 +178,7 @@ Do not add unsupported metrics, employment claims, rankings, or technical detail
 - **Antim Seva:** Social Impact / Product Project. GitHub: [MalviyaSir/AntimSeva](https://github.com/MalviyaSir/AntimSeva). Live site: [antim-seva-gilt.vercel.app](https://antim-seva-gilt.vercel.app/). It is not presented as an active operating service.
 - **PG-Finder / StayJi:** The unavailable PG-Finder repository is not exposed as a clickable portfolio link. StayJi is represented through its working live website and demo only.
 - **Pack Your Bag:** Included as a secondary Android project using the verified Java/Android Studio positioning from the resume. Repository: [CodeMaster00001/pack-your-bag-app](https://github.com/CodeMaster00001/pack-your-bag-app).
-- **ETWDC:** Multidisciplinary engineering project involving vehicle electrification, wiring harness, electronics, Arduino, and web development.
+- **ETWDC:** Multidisciplinary engineering project involving vehicle electrification, wiring harness, electronics, Arduino, and web development. Live website: [codemaster00001.github.io/Spark-Ignited](https://codemaster00001.github.io/Spark-Ignited/).
 
 The portfolio includes only curated projects rather than dumping every repository from either GitHub account.
 
@@ -202,6 +202,7 @@ The portfolio includes only curated projects rather than dumping every repositor
 | Antim Seva live project | [antim-seva-gilt.vercel.app](https://antim-seva-gilt.vercel.app) |
 | Pack Your Bag repository | [github.com/CodeMaster00001/pack-your-bag-app](https://github.com/CodeMaster00001/pack-your-bag-app) |
 | ETWDC repository | [github.com/CodeMaster00001/Spark-Ignited](https://github.com/CodeMaster00001/Spark-Ignited) |
+| ETWDC live website | [codemaster00001.github.io/Spark-Ignited](https://codemaster00001.github.io/Spark-Ignited/) |
 
 ## Local Assets
 
