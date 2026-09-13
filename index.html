@@ -41,11 +41,13 @@
           <a href="#skills">Skills</a>
           <a href="#research">Research</a>
           <a href="#education">Education</a>
+          <a href="#achievements">Achievements</a>
+          <a href="#education">Education</a>
           <a href="#contact">Contact</a>
         </nav>
         <div class="header-actions">
           <button class="theme-toggle" type="button" aria-label="Toggle theme">Dark</button>
-          <a class="nav-button" href="Vaibhav_Malviya_Google_SWE_Final_Resume.pdf" target="_blank" rel="noreferrer">Resume</a>
+          <a class="nav-button" href="public/resume.pdf" download>Resume</a>
         </div>
       </div>
     </header>
@@ -65,7 +67,7 @@
             </p>
             <div class="cta-row">
               <a class="button primary" href="#projects">View Projects</a>
-              <a class="button secondary" href="Vaibhav_Malviya_Google_SWE_Final_Resume.pdf" target="_blank" rel="noreferrer">View Resume</a>
+              <a class="button secondary" href="public/resume.pdf" download>View Resume</a>
               <a class="button ghost" href="https://github.com/CodeMaster00001" target="_blank" rel="noreferrer">GitHub</a>
               <a class="button ghost" href="https://www.linkedin.com/in/vaibhav-malviya-586813226/" target="_blank" rel="noreferrer">LinkedIn</a>
             </div>
@@ -80,7 +82,7 @@
           <div class="hero-panel reveal" aria-label="Vaibhav Malviya profile">
             <article class="profile-card">
               <div class="profile-photo-wrap">
-                <img class="profile-photo" src="VaibhavPhoto%2003-06-24.jpeg" alt="Professional headshot of Vaibhav Malviya" width="400" height="500" />
+                <img class="profile-photo" src="public/profile-photo.jpeg" alt="Professional headshot of Vaibhav Malviya" width="400" height="500" />
                 <span class="availability-badge"><span aria-hidden="true"></span> Open to opportunities</span>
               </div>
               <div class="profile-card-body">
@@ -181,6 +183,7 @@ AI LLMs • RAG • Agentic AI</code></pre>
           </div>
 
           <div class="filter-row" id="projectFilters" aria-label="Project categories"></div>
+          <label class="project-search" for="projectSearch">Search projects <input id="projectSearch" type="search" placeholder="Name, technology, or category" /></label>
           <div id="projectGrid" class="project-stack" aria-live="polite"></div>
 
           <div class="secondary-projects reveal">
@@ -212,13 +215,13 @@ AI LLMs • RAG • Agentic AI</code></pre>
         </div>
       </section>
 
-      <section id="github" class="section alt-section">
+      <section id="certificates" class="section alt-section">
         <div class="container">
           <div class="section-heading reveal">
-            <p class="eyebrow">Public profile</p>
-            <h2>GitHub Projects</h2>
+            <p class="eyebrow">Verified learning</p>
+            <h2>Certificates</h2>
           </div>
-          <div id="github-projects" class="github-grid" aria-live="polite"></div>
+          <div id="certificateGrid" class="certificate-grid" aria-live="polite"></div>
         </div>
       </section>
 
@@ -264,40 +267,7 @@ AI LLMs • RAG • Agentic AI</code></pre>
             <h2>Academic Background</h2>
           </div>
 
-          <div class="education-list">
-            <article class="education-item reveal">
-              <div>
-                <p class="edu-title">Bachelor of Engineering in Computer Engineering</p>
-                <p class="edu-meta">Institute of Engineering and Technology, Devi Ahilya Vishwavidyalaya, Indore</p>
-              </div>
-              <div class="edu-right">
-                <p>2021 – 2025</p>
-                <p>79%</p>
-              </div>
-            </article>
-
-            <article class="education-item reveal">
-              <div>
-                <p class="edu-title">Higher Secondary School (Class XII)</p>
-                <p class="edu-meta">Advanced Academy</p>
-              </div>
-              <div class="edu-right">
-                <p>2021</p>
-                <p>85.4%</p>
-              </div>
-            </article>
-
-            <article class="education-item reveal">
-              <div>
-                <p class="edu-title">Secondary School (Class X)</p>
-                <p class="edu-meta">Advanced Academy</p>
-              </div>
-              <div class="edu-right">
-                <p>2019</p>
-                <p>84.6%</p>
-              </div>
-            </article>
-          </div>
+          <div id="educationList" class="education-list" aria-live="polite"></div>
         </div>
       </section>
 
@@ -308,12 +278,7 @@ AI LLMs • RAG • Agentic AI</code></pre>
             <h2>Community &amp; Leadership</h2>
           </div>
 
-          <div class="leadership-grid reveal">
-            <span>Sponsorship Head — FeedBox</span>
-            <span>Public Relations and Marketing Head — Engineers Without Borders (EWB)</span>
-            <span>Member — NSS Club</span>
-            <span>Member — Bureau of Indian Standards (BIS) Club</span>
-          </div>
+          <div id="leadershipList" class="leadership-grid" aria-live="polite"></div>
         </div>
       </section>
 
@@ -327,7 +292,7 @@ AI LLMs • RAG • Agentic AI</code></pre>
           <div class="terminal-shell reveal" aria-label="Portfolio terminal emulator">
             <div class="terminal-output" id="terminal-output" aria-live="polite">
               <div class="line">$ help</div>
-              <div class="line muted">Available commands: help, about, skills, experience, projects, github, contact, clear</div>
+              <div class="line muted">Available commands: help, about, skills, experience, projects, achievements, education, github, linkedin, resume, contact, clear</div>
             </div>
             <form id="terminal-form" class="terminal-form">
               <label for="terminal-input" class="sr-only">Terminal command</label>
@@ -349,6 +314,7 @@ AI LLMs • RAG • Agentic AI</code></pre>
           </div>
 
           <div class="contact-links">
+            <button class="copy-email" type="button" data-copy-email="vaibhavmalviya2902@gmail.com">Copy email</button>
             <a href="mailto:vaibhavmalviya2902@gmail.com">vaibhavmalviya2902@gmail.com</a>
             <a href="tel:+916265958565">+91 62659 58565</a>
             <a href="https://github.com/CodeMaster00001" target="_blank" rel="noreferrer">GitHub</a>
@@ -362,13 +328,15 @@ AI LLMs • RAG • Agentic AI</code></pre>
 
     <footer class="site-footer">
       <div class="container footer-wrap">
-        <p>© 2025 Vaibhav Malviya</p>
+        <p>© 2026 Vaibhav Malviya</p>
         <div class="footer-links">
           <a href="https://github.com/CodeMaster00001" target="_blank" rel="noreferrer">GitHub</a>
           <a href="https://www.linkedin.com/in/vaibhav-malviya-586813226/" target="_blank" rel="noreferrer">LinkedIn</a>
         </div>
       </div>
     </footer>
+
+    <a class="back-to-top" href="#top" aria-label="Back to top">↑</a>
 
     <div id="projectModal" class="modal" aria-hidden="true">
       <div class="modal-content project-modal-content" role="dialog" aria-modal="true" aria-labelledby="project-modal-title">
@@ -391,6 +359,14 @@ AI LLMs • RAG • Agentic AI</code></pre>
           </div>
           <div class="project-modal-links" aria-label="Project links"></div>
         </div>
+      </div>
+    </div>
+
+    <div id="certificateModal" class="modal" aria-hidden="true">
+      <div class="modal-content certificate-modal-content" role="dialog" aria-modal="true" aria-labelledby="certificate-title">
+        <button class="certificate-modal-close modal-close" type="button" aria-label="Close certificate preview">×</button>
+        <h2 id="certificate-title" class="certificate-modal-title">Certificate</h2>
+        <div id="certificate-preview"></div>
       </div>
     </div>
 

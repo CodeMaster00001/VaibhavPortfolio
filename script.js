@@ -12,7 +12,7 @@ const portfolioData = {
     linkedin: "https://www.linkedin.com/in/vaibhav-malviya-586813226/",
     hackerrank: "https://www.hackerrank.com/profile/001codemaster",
     codechef: "https://www.codechef.com/users/codemaster40",
-    resume: "Vaibhav_Malviya_Google_SWE_Final_Resume.pdf"
+    resume: "public/resume.pdf"
   },
   experience: [
     {
@@ -71,7 +71,7 @@ const portfolioData = {
       description:
         "Built a full-stack platform using React, Tailwind CSS, Node.js, Express.js, MongoDB/Mongoose, REST APIs, authentication, and role-based access control across user, property-owner, and administrative workflows.",
       tech: ["React", "Tailwind CSS", "Node.js", "Express.js", "MongoDB", "Mongoose", "REST APIs", "Authentication", "RBAC"],
-      github: "https://github.com/CodeMaster00001/VaibhavPortfolio",
+      github: "https://github.com/MalviyaSir/PG-Finder",
       demo: "",
       achievement: "Full-stack user, property-owner, and admin workflows",
       highlight: "Featured"
@@ -83,7 +83,7 @@ const portfolioData = {
       description:
         "Built an AI-enabled solution analyzing building sensor and energy-consumption data to generate optimization recommendations; developed observation, reasoning, decision-making, and savings/ROI workflows using Python/FastAPI, React, TypeScript, and Node.js/Express.",
       tech: ["Python", "FastAPI", "React", "TypeScript", "Node.js", "Express", "AI/ML"],
-      github: "https://github.com/CodeMaster00001/VaibhavPythonProjects",
+      github: "https://github.com/MalviyaSir/EnergyDecisionAgent",
       demo: "",
       achievement: "Special Spot Recognition — LTTS 24-Hour Hackathon",
       highlight: "Flagship"
@@ -119,7 +119,7 @@ const portfolioData = {
       description:
         "Developed an Android application in Java for travel-item reminders and gained hands-on experience with Android Studio through team-based development.",
       tech: ["Java", "Android Studio"],
-      github: "https://github.com/CodeMaster00001/pack-your-bag-app",
+      github: "https://github.com/CodeMaster00001/packyourbag",
       demo: "",
       achievement: "Android travel reminder app",
       highlight: "Secondary"
@@ -200,32 +200,55 @@ const portfolioData = {
   }
 };
 
+const certificates = [
+  { title: "Data Structures and Algorithms", image: "public/certificates/dsa.jpeg", type: "image" },
+  { title: "C and C++", image: "public/certificates/c-cpp.jpeg", type: "image" },
+  { title: "Core Java", image: "public/certificates/core-java.jpeg", type: "image" },
+  { title: "Advanced Java", image: "public/certificates/advanced-java.jpg", type: "image" },
+  { title: "Cyber Security", image: "public/certificates/cyber-security.jpeg", type: "image" },
+  { title: "ETWDC Project Certificate", image: "public/certificates/etwdc.pdf", type: "pdf" },
+  { title: "FeedBox Certificate", image: "public/certificates/feedbox.pdf", type: "pdf" }
+];
+
 const app = {
-  currentTheme: "dark",
+  themePreference: "system",
+  currentTheme: "light",
   activeProjectFilter: "ALL",
   projectFilters: ["ALL", "AI/ML", "FULL STACK", "BACKEND", "WEB", "MOBILE", "ENGINEERING", "SOCIAL IMPACT"],
   history: [],
   historyIndex: -1
 };
 
-const setTheme = (theme) => {
+const getSystemTheme = () => window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+
+const setTheme = (preference, persist = true) => {
   const root = document.documentElement;
   const themeButton = document.querySelector(".theme-toggle");
+  const theme = preference === "system" ? getSystemTheme() : preference;
   const isDark = theme === "dark";
+  app.themePreference = preference;
+  app.currentTheme = theme;
   root.dataset.theme = theme;
+  root.style.colorScheme = theme;
   document.body.classList.toggle("theme-light", !isDark);
   if (themeButton) {
-    themeButton.textContent = isDark ? "Dark" : "Light";
-    themeButton.setAttribute("aria-label", isDark ? "Switch to light theme" : "Switch to dark theme");
+    const preferenceLabel = preference.charAt(0).toUpperCase() + preference.slice(1);
+    themeButton.textContent = `Theme: ${preferenceLabel}`;
+    themeButton.setAttribute("aria-label", `Theme preference: ${preferenceLabel}. Activate to change theme`);
+    themeButton.title = "Cycle between light, dark, and system themes";
   }
-  localStorage.setItem("vaibhavPortfolioTheme", theme);
+  if (persist) localStorage.setItem("vaibhavPortfolioTheme", preference);
 };
 
 const initializeTheme = () => {
-  const savedTheme = localStorage.getItem("vaibhavPortfolioTheme");
-  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-  app.currentTheme = savedTheme || (prefersDark ? "dark" : "light");
-  setTheme(app.currentTheme);
+  const savedPreference = localStorage.getItem("vaibhavPortfolioTheme");
+  const validPreference = ["light", "dark", "system"].includes(savedPreference) ? savedPreference : "system";
+  setTheme(validPreference, false);
+
+  const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+  mediaQuery.addEventListener?.("change", () => {
+    if (app.themePreference === "system") setTheme("system", false);
+  });
 };
 
 const renderEntries = () => {
@@ -295,14 +318,18 @@ const renderProjectFilters = () => {
 const renderProjects = () => {
   const container = document.getElementById("projectGrid");
   if (!container) return;
+  const search = document.getElementById("projectSearch");
+  const query = search ? search.value.trim().toLowerCase() : "";
 
   const projects = portfolioData.projects.filter((project) => {
-    if (app.activeProjectFilter === "ALL") return true;
-    if (app.activeProjectFilter === "WEB") return ["FULL STACK", "BACKEND", "ENGINEERING"].includes(project.category) || project.tech.includes("React") || project.tech.includes("HTML");
-    return project.category === app.activeProjectFilter;
+    const matchesFilter = app.activeProjectFilter === "ALL"
+      || (app.activeProjectFilter === "WEB" && (["FULL STACK", "BACKEND", "ENGINEERING"].includes(project.category) || project.tech.includes("React") || project.tech.includes("HTML")))
+      || project.category === app.activeProjectFilter;
+    const searchable = `${project.title} ${project.description} ${project.category} ${project.tech.join(" ")}`.toLowerCase();
+    return matchesFilter && searchable.includes(query);
   });
 
-  container.innerHTML = projects
+  container.innerHTML = projects.length ? projects
     .map(
       (project) => `
         <article class="project-card reveal" data-project-id="${project.id}">
@@ -325,7 +352,7 @@ const renderProjects = () => {
         </article>
       `
     )
-    .join("");
+    .join("") : `<div class="empty-state">No projects match that search or filter.</div>`;
 
   container.querySelectorAll(".project-card").forEach((card) => {
     card.addEventListener("click", () => {
@@ -335,6 +362,47 @@ const renderProjects = () => {
         openProjectModal(project);
       }
     });
+  });
+
+  container.querySelectorAll(".project-card a").forEach((link) => {
+    link.addEventListener("click", (event) => event.stopPropagation());
+  });
+};
+
+const renderCertificates = () => {
+  const container = document.getElementById("certificateGrid");
+  if (!container) return;
+  container.innerHTML = certificates.map((certificate) => `
+    <button class="certificate-card" type="button" data-certificate-image="${certificate.image}" data-certificate-type="${certificate.type}" data-certificate-title="${certificate.title}">
+      <span class="certificate-preview">${certificate.type === "pdf" ? "PDF" : `<img src="${certificate.image}" alt="" loading="lazy" />`}</span>
+      <strong>${certificate.title}</strong>
+      <small>Open preview</small>
+    </button>
+  `).join("");
+};
+
+const initializeCertificateModal = () => {
+  const modal = document.getElementById("certificateModal");
+  const preview = document.getElementById("certificate-preview");
+  const title = document.getElementById("certificate-title");
+  if (!modal || !preview || !title) return;
+  const close = () => {
+    modal.classList.remove("is-visible");
+    modal.setAttribute("aria-hidden", "true");
+    preview.innerHTML = "";
+  };
+  modal.querySelector(".certificate-modal-close").addEventListener("click", close);
+  modal.addEventListener("click", (event) => { if (event.target === modal) close(); });
+  document.addEventListener("keydown", (event) => { if (event.key === "Escape" && modal.classList.contains("is-visible")) close(); });
+  document.getElementById("certificateGrid")?.addEventListener("click", (event) => {
+    const card = event.target.closest("[data-certificate-image]");
+    if (!card) return;
+    title.textContent = card.dataset.certificateTitle;
+    preview.innerHTML = card.dataset.certificateType === "pdf"
+      ? `<iframe title="${card.dataset.certificateTitle}" src="${card.dataset.certificateImage}"></iframe>`
+      : `<img src="${card.dataset.certificateImage}" alt="${card.dataset.certificateTitle} certificate preview" />`;
+    modal.classList.add("is-visible");
+    modal.setAttribute("aria-hidden", "false");
   });
 };
 
@@ -399,11 +467,7 @@ const renderLeadership = () => {
   const container = document.getElementById("leadershipList");
   if (!container) return;
 
-  container.innerHTML = `
-    <div class="leadership-grid reveal">
-      ${portfolioData.leadership.map((item) => `<span>${item}</span>`).join("")}
-    </div>
-  `;
+  container.innerHTML = portfolioData.leadership.map((item) => `<span class="reveal">${item}</span>`).join("");
 };
 
 const openProjectModal = (project) => {
@@ -420,6 +484,7 @@ const openProjectModal = (project) => {
     ${project.demo ? `<a href="${project.demo}" target="_blank" rel="noreferrer">Live Demo</a>` : ""}
   `;
   modal.classList.add("is-visible");
+  modal.setAttribute("aria-hidden", "false");
   document.body.style.overflow = "hidden";
 };
 
@@ -427,6 +492,7 @@ const closeProjectModal = () => {
   const modal = document.getElementById("projectModal");
   if (!modal) return;
   modal.classList.remove("is-visible");
+  modal.setAttribute("aria-hidden", "true");
   document.body.style.overflow = "";
 };
 
@@ -438,7 +504,7 @@ const initializeTerminal = () => {
 
   const commandHandlers = {
     help: [
-      "Available commands: help, about, skills, experience, projects, achievements, github, contact, clear",
+      "Available commands: help, about, skills, experience, projects, achievements, education, github, linkedin, resume, contact, clear",
       "Use the navigation to move between sections."
     ],
     about: [
@@ -457,8 +523,10 @@ const initializeTerminal = () => {
       "FeedBox — Web Developer Intern, Jul 2023 – Dec 2023"
     ],
     projects: [
-      "StayJi — Full-Stack PG & Stay Finder Platform",
+      "StayJi / PG Finder — Full-Stack PG & Stay Finder Platform",
       "Smart Energy Optimization Agent — LTTS 24-Hour Hackathon",
+      "Zoom Finance — JavaScript web application",
+      "Antim Seva — Social Impact / Product Project",
       "Online Shopping Website",
       "Pack Your Bag App",
       "ETWDC — Electric Two-Wheeler Design Competition"
@@ -479,6 +547,13 @@ const initializeTerminal = () => {
       "Phone: +91 62659 58565",
       "LinkedIn: https://www.linkedin.com/in/vaibhav-malviya-586813226/"
     ],
+    education: [
+      "B.E. Computer Engineering — IET DAVV, Indore | 2021–2025 | 79%",
+      "Class XII — Advanced Academy | 85.4%",
+      "Class X — Advanced Academy | 84.6%"
+    ],
+    linkedin: ["https://www.linkedin.com/in/vaibhav-malviya-586813226/"],
+    resume: ["Download: public/resume.pdf"],
     clear: ["Terminal cleared."]
   };
 
@@ -495,6 +570,8 @@ const initializeTerminal = () => {
     const command = terminalInput.value.trim().toLowerCase();
     if (!command) return;
     renderLine(`> ${command}`);
+    app.history.push(command);
+    app.historyIndex = -1;
     terminalInput.value = "";
 
     if (command === "clear") {
@@ -504,7 +581,7 @@ const initializeTerminal = () => {
     }
 
     const response = commandHandlers[command] || [
-      "Command not recognized. Try: help, about, skills, experience, projects, achievements, github, contact, clear"
+      "Command not recognized. Try: help, about, skills, experience, projects, achievements, education, github, linkedin, resume, contact, clear"
     ];
     response.forEach((line) => renderLine(line));
   });
@@ -528,86 +605,6 @@ const initializeTerminal = () => {
   });
 };
 
-const fetchGithubRepos = async () => {
-  const githubContainer = document.getElementById("github-projects");
-  if (!githubContainer) return;
-
-  const fallbackRepos = [
-    {
-      name: "VaibhavPortfolio",
-      description: "Static portfolio website for Vaibhav Malviya.",
-      html_url: "https://github.com/CodeMaster00001/VaibhavPortfolio",
-      language: "HTML",
-      stargazers_count: 0,
-      forks_count: 0,
-      updated_at: "2024-01-01T00:00:00Z"
-    },
-    {
-      name: "VaibhavPythonProjects",
-      description: "Python projects developed while learning and building practical solutions.",
-      html_url: "https://github.com/CodeMaster00001/VaibhavPythonProjects",
-      language: "Python",
-      stargazers_count: 0,
-      forks_count: 0,
-      updated_at: "2024-01-01T00:00:00Z"
-    },
-    {
-      name: "VaibhavShoppingCart",
-      description: "Java-based shopping cart implementation using servlets, JSP, MySQL, and JDBC.",
-      html_url: "https://github.com/CodeMaster00001/VaibhavShoppingCart",
-      language: "Java",
-      stargazers_count: 0,
-      forks_count: 0,
-      updated_at: "2024-01-01T00:00:00Z"
-    }
-  ];
-
-  const renderRepo = (repo) => {
-    const item = document.createElement("article");
-    item.className = "github-card";
-    item.innerHTML = `
-      <div class="github-top">
-        <h3><a href="${repo.html_url}" target="_blank" rel="noreferrer">${repo.name}</a></h3>
-        <span class="achievement-badge">${repo.language || "Unknown"}</span>
-      </div>
-      <p>${repo.description || "Repository description unavailable."}</p>
-      <div class="github-meta">
-        <span>⭐ ${repo.stargazers_count || 0}</span>
-        <span>🍴 ${repo.forks_count || 0}</span>
-        <span>Updated ${repo.updated_at ? new Date(repo.updated_at).toLocaleDateString(undefined, { year: "numeric", month: "short", day: "numeric" }) : "N/A"}</span>
-      </div>
-    `;
-    return item;
-  };
-
-  githubContainer.innerHTML = "<div class='loading-state'>Loading public repositories…</div>";
-
-  try {
-    const response = await fetch("https://api.github.com/users/CodeMaster00001/repos?per_page=6", {
-      headers: { Accept: "application/vnd.github+json" }
-    });
-
-    if (!response.ok) {
-      throw new Error("GitHub API failed");
-    }
-
-    const repos = await response.json();
-    const relevant = Array.isArray(repos)
-      ? repos.filter((repo) => repo && repo.name && repo.name !== "CodeMaster00001").slice(0, 6)
-      : [];
-
-    githubContainer.innerHTML = "";
-    if (relevant.length) {
-      relevant.forEach((repo) => githubContainer.appendChild(renderRepo(repo)));
-    } else {
-      fallbackRepos.forEach((repo) => githubContainer.appendChild(renderRepo(repo)));
-    }
-  } catch (error) {
-    githubContainer.innerHTML = "";
-    fallbackRepos.forEach((repo) => githubContainer.appendChild(renderRepo(repo)));
-  }
-};
-
 const initializeScrollEffects = () => {
   const sections = document.querySelectorAll("section[id]");
   const navLinks = document.querySelectorAll(".site-nav a");
@@ -625,14 +622,16 @@ const initializeScrollEffects = () => {
     });
   };
   window.addEventListener("scroll", updateActiveSection, { passive: true });
+  updateActiveSection();
 };
 
 const initializeThemeButton = () => {
   const themeButton = document.querySelector(".theme-toggle");
   if (!themeButton) return;
   themeButton.addEventListener("click", () => {
-    app.currentTheme = app.currentTheme === "dark" ? "light" : "dark";
-    setTheme(app.currentTheme);
+    const preferences = ["light", "dark", "system"];
+    const currentIndex = preferences.indexOf(app.themePreference);
+    setTheme(preferences[(currentIndex + 1) % preferences.length]);
   });
 };
 
@@ -680,16 +679,37 @@ const initializeRotatingHeadline = () => {
   }, 2200);
 };
 
+const initializeProjectSearch = () => {
+  document.getElementById("projectSearch")?.addEventListener("input", renderProjects);
+};
+
+const initializeCopyEmail = () => {
+  document.querySelector("[data-copy-email]")?.addEventListener("click", async (event) => {
+    const button = event.currentTarget;
+    const email = button.dataset.copyEmail;
+    try {
+      await navigator.clipboard.writeText(email);
+      button.textContent = "Email copied";
+    } catch {
+      button.textContent = email;
+    }
+    window.setTimeout(() => { button.textContent = "Copy email"; }, 1800);
+  });
+};
+
 const initialize = () => {
   initializeTheme();
   initializeThemeButton();
   initializeNavigation();
   initializeScrollEffects();
   renderEntries();
+  renderCertificates();
+  initializeProjectSearch();
+  initializeCertificateModal();
+  initializeCopyEmail();
   initializeRotatingHeadline();
   initializeTerminal();
   initializeProjectModal();
-  fetchGithubRepos();
   const modal = document.getElementById("projectModal");
   if (modal) {
     modal.addEventListener("hidden", () => {
