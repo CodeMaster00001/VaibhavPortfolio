@@ -2,6 +2,14 @@
 
 A premium, responsive, interactive software-engineering portfolio built with plain HTML, CSS, and JavaScript. The portfolio uses local structured data and local assets, so it does not require a database, backend, authentication, CMS, or external API.
 
+## Live Website
+
+Visit the deployed portfolio:
+
+**[https://codemaster00001.github.io/VaibhavPortfolio/](https://codemaster00001.github.io/VaibhavPortfolio/)**
+
+The live site is hosted as a static GitHub Pages website from the `main` branch root.
+
 ## What Is Included
 
 - Professional hero section with Vaibhav's local profile photo.
@@ -159,13 +167,35 @@ Do not add unsupported metrics, employment claims, rankings, or technical detail
 ## Verified Project Positioning
 
 - **Energy Decision Agent:** Team DASH LTTS hackathon project. Presented around sensor/energy data, observation, reasoning, decision-making, optimization recommendations, and savings/ROI concepts. GitHub account: `MalviyaSir`.
+- **StayJi:** Full-stack PG/stay finder project with a public live site at [stayji.com](https://www.stayji.com/) and an owner demo at [stayji-demo.vercel.app](https://stayji-demo.vercel.app/). The demo credentials are intentionally not stored in this public repository.
 - **Zoom Finance:** Project work represented with the `CodeMaster00001/ZoomFinance` repository and its verified Vercel link. It is not presented as current employment.
-- **Antim Seva:** Social Impact / Product Project. GitHub: `https://github.com/MalviyaSir/AntimSeva`. Live site: `https://antim-seva-gilt.vercel.app/`. It is not presented as an active operating service.
+- **Antim Seva:** Social Impact / Product Project. GitHub: [MalviyaSir/AntimSeva](https://github.com/MalviyaSir/AntimSeva). Live site: [antim-seva-gilt.vercel.app](https://antim-seva-gilt.vercel.app/). It is not presented as an active operating service.
 - **PG-Finder / StayJi:** Kept as a carefully labeled project candidate; do not merge the names unless the implementation verifies that relationship.
-- **Pack Your Bag:** Included as a secondary Android project using the verified Java/Android Studio positioning from the resume.
+- **Pack Your Bag:** Included as a secondary Android project using the verified Java/Android Studio positioning from the resume. Repository: [CodeMaster00001/pack-your-bag-app](https://github.com/CodeMaster00001/pack-your-bag-app).
 - **ETWDC:** Multidisciplinary engineering project involving vehicle electrification, wiring harness, electronics, Arduino, and web development.
 
 The portfolio includes only curated projects rather than dumping every repository from either GitHub account.
+
+## Verified Links
+
+| Resource | Link |
+| --- | --- |
+| Live portfolio | [codemaster00001.github.io/VaibhavPortfolio](https://codemaster00001.github.io/VaibhavPortfolio/) |
+| Primary GitHub | [github.com/CodeMaster00001](https://github.com/CodeMaster00001) |
+| Second GitHub | [github.com/MalviyaSir](https://github.com/MalviyaSir) |
+| LinkedIn | [linkedin.com/in/vaibhav-malviya-586813226](https://www.linkedin.com/in/vaibhav-malviya-586813226) |
+| HackerRank | [hackerrank.com/profile/001codemaster](https://www.hackerrank.com/profile/001codemaster) |
+| CodeChef | [codechef.com/users/codemaster40](https://www.codechef.com/users/codemaster40) |
+| Latest resume | [public/resume.pdf](public/resume.pdf) |
+| Zoom Finance repository | [github.com/CodeMaster00001/ZoomFinance](https://github.com/CodeMaster00001/ZoomFinance) |
+| Zoom Finance live project | [zoom-finance-chi.vercel.app](https://zoom-finance-chi.vercel.app) |
+| StayJi live project | [www.stayji.com](https://www.stayji.com/) |
+| StayJi owner demo | [stayji-demo.vercel.app](https://stayji-demo.vercel.app/) |
+| Energy Decision Agent | [github.com/MalviyaSir/EnergyDecisionAgent](https://github.com/MalviyaSir/EnergyDecisionAgent) |
+| Antim Seva repository | [github.com/MalviyaSir/AntimSeva](https://github.com/MalviyaSir/AntimSeva) |
+| Antim Seva live project | [antim-seva-gilt.vercel.app](https://antim-seva-gilt.vercel.app) |
+| Pack Your Bag repository | [github.com/CodeMaster00001/packyourbag](https://github.com/CodeMaster00001/packyourbag) |
+| ETWDC repository | [github.com/CodeMaster00001/Spark-Ignited](https://github.com/CodeMaster00001/Spark-Ignited) |
 
 ## Local Assets
 
@@ -224,13 +254,15 @@ This project is compatible with GitHub Pages.
 4. Select branch `main` and folder `/ (root)`.
 5. Save the setting.
 
-Expected URL:
+Live URL after deployment:
 
 ```text
 https://codemaster00001.github.io/VaibhavPortfolio/
 ```
 
 GitHub Pages serves the static site directly. No environment variables, MongoDB connection, Node server, admin password, or build command is required.
+
+After pushing changes, GitHub Pages may take a short time to rebuild. Open the live URL and use a hard refresh (`Ctrl+Shift+R`) if the browser is showing an older cached version.
 
 ## Git Workflow
 

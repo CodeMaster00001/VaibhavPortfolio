@@ -72,7 +72,8 @@ const portfolioData = {
         "Built a full-stack platform using React, Tailwind CSS, Node.js, Express.js, MongoDB/Mongoose, REST APIs, authentication, and role-based access control across user, property-owner, and administrative workflows.",
       tech: ["React", "Tailwind CSS", "Node.js", "Express.js", "MongoDB", "Mongoose", "REST APIs", "Authentication", "RBAC"],
       github: "https://github.com/MalviyaSir/PG-Finder",
-      demo: "",
+      demo: "https://stayji-demo.vercel.app/",
+      live: "https://www.stayji.com/",
       achievement: "Full-stack user, property-owner, and admin workflows",
       highlight: "Featured"
     },
@@ -87,6 +88,28 @@ const portfolioData = {
       demo: "",
       achievement: "Special Spot Recognition — LTTS 24-Hour Hackathon",
       highlight: "Flagship"
+    },
+    {
+      id: "zoom-finance",
+      title: "Zoom Finance",
+      category: "FULL STACK",
+      description: "A JavaScript web application represented as project work, with a public source repository and Vercel deployment.",
+      tech: ["JavaScript", "Vite", "Web UI"],
+      github: "https://github.com/CodeMaster00001/ZoomFinance",
+      demo: "https://zoom-finance-chi.vercel.app",
+      achievement: "Project work; not current employment",
+      highlight: "Product"
+    },
+    {
+      id: "antim-seva",
+      title: "Antim Seva",
+      category: "SOCIAL IMPACT",
+      description: "A social-impact/product concept presented accurately as inactive and archival; it is not an active operating service and does not claim live service metrics.",
+      tech: ["Web Development", "Product Design"],
+      github: "https://github.com/MalviyaSir/AntimSeva",
+      demo: "https://antim-seva-gilt.vercel.app/",
+      achievement: "Social Impact / Product Project",
+      highlight: "Social Impact"
     },
     {
       id: "etwdc",
@@ -119,7 +142,7 @@ const portfolioData = {
       description:
         "Developed an Android application in Java for travel-item reminders and gained hands-on experience with Android Studio through team-based development.",
       tech: ["Java", "Android Studio"],
-      github: "https://github.com/CodeMaster00001/packyourbag",
+      github: "https://github.com/CodeMaster00001/pack-your-bag-app",
       demo: "",
       achievement: "Android travel reminder app",
       highlight: "Secondary"
@@ -160,7 +183,7 @@ const portfolioData = {
     }
   ],
   achievements: [
-    { name: "5-Star Python", org: "HackerRank", detail: "Strong Python problem-solving and code quality." },
+    { name: "5-Star Python", org: "HackerRank", detail: "Strong Python problem-solving and code quality.", link: "https://www.hackerrank.com/profile/001codemaster" },
     { name: "Top Performer", org: "LTTS Python Technical Training", detail: "Recognized as a top performer in intensive Python training." },
     { name: "Special Spot Recognition", org: "LTTS 24-Hour Hackathon", detail: "Recognized for the Smart Energy Optimization Agent." },
     { name: "AIR-7", org: "ETWDC", detail: "Achieved AIR-7 in the Electric Two-Wheeler Design Competition." },
@@ -337,7 +360,8 @@ const renderProjects = () => {
             <span class="project-tag">${project.highlight}</span>
             <div class="project-links">
               ${project.github ? `<a href="${project.github}" target="_blank" rel="noreferrer">GitHub</a>` : ""}
-              ${project.demo ? `<a href="${project.demo}" target="_blank" rel="noreferrer">Demo</a>` : ""}
+              ${project.demo ? `<a class="project-live-link" href="${project.demo}" target="_blank" rel="noreferrer">${project.id === "stayji" ? "Owner Demo" : "🌐 View Live Project ↗"}</a>` : ""}
+              ${project.live ? `<a class="project-live-link" href="${project.live}" target="_blank" rel="noreferrer">🌐 View Live Project ↗</a>` : ""}
             </div>
           </div>
           <h3>${project.title}</h3>
@@ -433,7 +457,7 @@ const renderAchievements = () => {
       (item) => `
         <article class="achievement-card reveal">
           <span class="achievement-badge">${item.org}</span>
-          <h3>${item.name}</h3>
+          <h3>${item.link ? `<a class="achievement-link" href="${item.link}" target="_blank" rel="noreferrer">${item.name}</a>` : item.name}</h3>
           <p>${item.detail}</p>
         </article>
       `
@@ -481,7 +505,8 @@ const openProjectModal = (project) => {
   modal.querySelector(".project-modal-achievement").textContent = project.achievement;
   modal.querySelector(".project-modal-links").innerHTML = `
     ${project.github ? `<a href="${project.github}" target="_blank" rel="noreferrer">GitHub</a>` : ""}
-    ${project.demo ? `<a href="${project.demo}" target="_blank" rel="noreferrer">Live Demo</a>` : ""}
+    ${project.demo ? `<a class="project-live-link" href="${project.demo}" target="_blank" rel="noreferrer">${project.id === "stayji" ? "Owner Demo" : "🌐 View Live Project ↗"}</a>` : ""}
+    ${project.live ? `<a class="project-live-link" href="${project.live}" target="_blank" rel="noreferrer">🌐 View Live Project ↗</a>` : ""}
   `;
   modal.classList.add("is-visible");
   modal.setAttribute("aria-hidden", "false");
