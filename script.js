@@ -12,7 +12,9 @@ const portfolioData = {
     linkedin: "https://www.linkedin.com/in/vaibhav-malviya-586813226/",
     hackerrank: "https://www.hackerrank.com/profile/001codemaster",
     codechef: "https://www.codechef.com/users/codemaster40",
-    resume: "public/resume.pdf"
+    resume: "public/resume.pdf",
+    strengths: ["Problem Solving", "Leadership", "Communication"],
+    hobbies: ["Swimming", "Trekking", "Driving", "Watching historic movies"]
   },
   experience: [
     {
@@ -71,7 +73,6 @@ const portfolioData = {
       description:
         "Built a full-stack platform using React, Tailwind CSS, Node.js, Express.js, MongoDB/Mongoose, REST APIs, authentication, and role-based access control across user, property-owner, and administrative workflows.",
       tech: ["React", "Tailwind CSS", "Node.js", "Express.js", "MongoDB", "Mongoose", "REST APIs", "Authentication", "RBAC"],
-      github: "https://github.com/MalviyaSir/PG-Finder",
       demo: "https://stayji-demo.vercel.app/",
       live: "https://www.stayji.com/",
       achievement: "Full-stack user, property-owner, and admin workflows",
@@ -210,6 +211,7 @@ const portfolioData = {
     }
   ],
   leadership: [
+    "Member — FeedBox Club (since 2021)",
     "Sponsorship Head — FeedBox",
     "Public Relations and Marketing Head — Engineers Without Borders (EWB)",
     "Member — NSS Club",
@@ -229,6 +231,7 @@ const certificates = [
   { title: "Core Java", image: "public/certificates/core-java.jpeg", type: "image" },
   { title: "Advanced Java", image: "public/certificates/advanced-java.jpg", type: "image" },
   { title: "Cyber Security", image: "public/certificates/cyber-security.jpeg", type: "image" },
+  { title: "Full-Stack Web Development", image: "public/certificates/blent-vidya.jpeg", type: "image" },
   { title: "ETWDC Project Certificate", image: "public/certificates/etwdc.pdf", type: "pdf" },
   { title: "FeedBox Certificate", image: "public/certificates/feedbox.pdf", type: "pdf" }
 ];
@@ -282,6 +285,14 @@ const renderEntries = () => {
   renderAchievements();
   renderLeadership();
   renderEducation();
+  renderProfileExtras();
+};
+
+const renderProfileExtras = () => {
+  const strengths = document.getElementById("strengthsList");
+  const hobbies = document.getElementById("hobbiesList");
+  if (strengths) strengths.innerHTML = portfolioData.profile.strengths.map((item) => `<span>${item}</span>`).join("");
+  if (hobbies) hobbies.innerHTML = portfolioData.profile.hobbies.map((item) => `<span>${item}</span>`).join("");
 };
 
 const renderExperience = () => {
@@ -408,12 +419,14 @@ const renderCertificates = () => {
 const initializeCertificateModal = () => {
   const modal = document.getElementById("certificateModal");
   const preview = document.getElementById("certificate-preview");
+  const actions = document.getElementById("certificate-actions");
   const title = document.getElementById("certificate-title");
-  if (!modal || !preview || !title) return;
+  if (!modal || !preview || !actions || !title) return;
   const close = () => {
     modal.classList.remove("is-visible");
     modal.setAttribute("aria-hidden", "true");
     preview.innerHTML = "";
+    actions.innerHTML = "";
   };
   modal.querySelector(".certificate-modal-close").addEventListener("click", close);
   modal.addEventListener("click", (event) => { if (event.target === modal) close(); });
@@ -422,9 +435,11 @@ const initializeCertificateModal = () => {
     const card = event.target.closest("[data-certificate-image]");
     if (!card) return;
     title.textContent = card.dataset.certificateTitle;
+    const asset = card.dataset.certificateImage;
+    actions.innerHTML = `<a class="button secondary" href="${asset}" target="_blank" rel="noreferrer">Open full-size viewer</a><span class="certificate-view-note">View online only</span>`;
     preview.innerHTML = card.dataset.certificateType === "pdf"
-      ? `<iframe title="${card.dataset.certificateTitle}" src="${card.dataset.certificateImage}"></iframe>`
-      : `<img src="${card.dataset.certificateImage}" alt="${card.dataset.certificateTitle} certificate preview" />`;
+      ? `<iframe title="${card.dataset.certificateTitle}" src="${asset}#view=FitH" loading="lazy"></iframe>`
+      : `<img src="${asset}" alt="${card.dataset.certificateTitle} certificate preview" />`;
     modal.classList.add("is-visible");
     modal.setAttribute("aria-hidden", "false");
   });

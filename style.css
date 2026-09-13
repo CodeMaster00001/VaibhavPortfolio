@@ -1346,7 +1346,10 @@ body.theme-light {
 }
 
 .certificate-modal-content {
-  width: min(1000px, 100%);
+  width: min(1400px, 96vw);
+  height: min(94vh, 1000px);
+  padding: 1.25rem;
+  overflow: hidden;
 }
 
 .certificate-modal-title {
@@ -1358,11 +1361,26 @@ body.theme-light {
 #certificate-preview iframe {
   display: block;
   width: 100%;
-  max-height: 72vh;
-  min-height: 280px;
+  height: calc(94vh - 150px);
+  max-height: calc(94vh - 150px);
+  min-height: 420px;
   border: 0;
   object-fit: contain;
   background: #fff;
+}
+
+.certificate-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-top: 0.9rem;
+}
+
+.certificate-view-note {
+  display: inline-flex;
+  align-items: center;
+  color: var(--muted);
+  font-size: 0.78rem;
 }
 
 .copy-email {
@@ -1400,6 +1418,19 @@ body.theme-light {
 @media (max-width: 768px) {
   .certificate-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .certificate-modal-content {
+    width: 100%;
+    height: 94vh;
+    padding: 1rem;
+  }
+
+  #certificate-preview img,
+  #certificate-preview iframe {
+    height: calc(94vh - 145px);
+    max-height: calc(94vh - 145px);
+    min-height: 320px;
   }
 }
 

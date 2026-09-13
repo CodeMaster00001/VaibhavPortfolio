@@ -129,7 +129,13 @@ The selected preference is saved in `localStorage`. System mode follows the brow
 
 ### Certificates
 
-Click a certificate card to open its local image or PDF preview. Press Escape or click outside the modal to close it.
+Click a certificate card to open its local image or PDF preview. PDF certificates open in a large online viewer with an `Open full-size viewer` fallback and no portfolio download button. Press Escape or click outside the modal to close it.
+
+### Resume privacy and download tracking
+
+The resume is the only document with an intentional download button. Because this is a static GitHub Pages site, it cannot securely identify who downloaded the resume: the browser does not provide a visitor identity, and there is no private server or analytics endpoint collecting events. The site therefore does not pretend to provide download identities.
+
+Certificates are presented for online viewing only. A visitor may still use browser or PDF-reader controls to save a document; static HTML cannot technically prevent that. To know who downloads a resume in the future, add a privacy-compliant server-side download endpoint or consent-based analytics service, with clear notice and appropriate data protection.
 
 ## Content Maintenance
 
@@ -167,10 +173,10 @@ Do not add unsupported metrics, employment claims, rankings, or technical detail
 ## Verified Project Positioning
 
 - **Energy Decision Agent:** Team DASH LTTS hackathon project. Presented around sensor/energy data, observation, reasoning, decision-making, optimization recommendations, and savings/ROI concepts. GitHub account: `MalviyaSir`.
-- **StayJi:** Full-stack PG/stay finder project with a public live site at [stayji.com](https://www.stayji.com/) and an owner demo at [stayji-demo.vercel.app](https://stayji-demo.vercel.app/). The demo credentials are intentionally not stored in this public repository.
+- **StayJi:** Full-stack PG/stay finder project represented through the working public live site at [stayji.com](https://www.stayji.com/) and owner demo at [stayji-demo.vercel.app](https://stayji-demo.vercel.app/). The unavailable repository link is intentionally omitted. Demo credentials are not stored in this public repository.
 - **Zoom Finance:** Project work represented with the `CodeMaster00001/ZoomFinance` repository and its verified Vercel link. It is not presented as current employment.
 - **Antim Seva:** Social Impact / Product Project. GitHub: [MalviyaSir/AntimSeva](https://github.com/MalviyaSir/AntimSeva). Live site: [antim-seva-gilt.vercel.app](https://antim-seva-gilt.vercel.app/). It is not presented as an active operating service.
-- **PG-Finder / StayJi:** Kept as a carefully labeled project candidate; do not merge the names unless the implementation verifies that relationship.
+- **PG-Finder / StayJi:** The unavailable PG-Finder repository is not exposed as a clickable portfolio link. StayJi is represented through its working live website and demo only.
 - **Pack Your Bag:** Included as a secondary Android project using the verified Java/Android Studio positioning from the resume. Repository: [CodeMaster00001/pack-your-bag-app](https://github.com/CodeMaster00001/pack-your-bag-app).
 - **ETWDC:** Multidisciplinary engineering project involving vehicle electrification, wiring harness, electronics, Arduino, and web development.
 
@@ -194,7 +200,7 @@ The portfolio includes only curated projects rather than dumping every repositor
 | Energy Decision Agent | [github.com/MalviyaSir/EnergyDecisionAgent](https://github.com/MalviyaSir/EnergyDecisionAgent) |
 | Antim Seva repository | [github.com/MalviyaSir/AntimSeva](https://github.com/MalviyaSir/AntimSeva) |
 | Antim Seva live project | [antim-seva-gilt.vercel.app](https://antim-seva-gilt.vercel.app) |
-| Pack Your Bag repository | [github.com/CodeMaster00001/packyourbag](https://github.com/CodeMaster00001/packyourbag) |
+| Pack Your Bag repository | [github.com/CodeMaster00001/pack-your-bag-app](https://github.com/CodeMaster00001/pack-your-bag-app) |
 | ETWDC repository | [github.com/CodeMaster00001/Spark-Ignited](https://github.com/CodeMaster00001/Spark-Ignited) |
 
 ## Local Assets
